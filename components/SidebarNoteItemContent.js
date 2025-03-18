@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useTransition } from 'react';
-import { useRouter, usePathname } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function SidebarNoteContent({
   id,
@@ -9,13 +9,13 @@ export default function SidebarNoteContent({
   children,
   expandedChildren,
 }) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const selectedId = pathname?.split('/')[1] || null
+  const router = useRouter();
+  const pathname = usePathname();
+  const selectedId = pathname?.split('/')[1] || null;
 
-  const [isPending] = useTransition()
-  const [isExpanded, setIsExpanded] = useState(false)
-  const isActive = id === selectedId
+  const [isPending] = useTransition();
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isActive = id === selectedId;
 
   // Animate after title is edited.
   const itemRef = useRef(null);
@@ -37,7 +37,8 @@ export default function SidebarNoteContent({
       className={[
         'sidebar-note-list-item',
         isExpanded ? 'note-expanded' : '',
-      ].join(' ')}>
+      ].join(' ')}
+    >
       {children}
       <button
         className="sidebar-note-open"
@@ -52,12 +53,13 @@ export default function SidebarNoteContent({
             : '1px solid transparent',
         }}
         onClick={() => {
-          const sidebarToggle = document.getElementById('sidebar-toggle')
+          const sidebarToggle = document.getElementById('sidebar-toggle');
           if (sidebarToggle) {
-            sidebarToggle.checked = true
+            sidebarToggle.checked = true;
           }
-          router.push(`/note/${id}`)
-        }}>
+          router.push(`/note/${id}`);
+        }}
+      >
         Open note for preview
       </button>
       <button
@@ -65,7 +67,8 @@ export default function SidebarNoteContent({
         onClick={(e) => {
           e.stopPropagation();
           setIsExpanded(!isExpanded);
-        }}>
+        }}
+      >
         {isExpanded ? (
           <img
             src="/chevron-down.svg"

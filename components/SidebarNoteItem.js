@@ -1,8 +1,8 @@
-import SidebarNoteItemContent from "./SidebarNoteItemContent";
-import SidebarNoteItemHeader from "./SidebarNoteItemHeader";
+import SidebarNoteItemContent from './SidebarNoteItemContent';
+import SidebarNoteItemHeader from './SidebarNoteItemHeader';
 
-export default function SidebarNoteItem({noteId, note}){
-  const {title, content = '', updateTime} = note;
+export default function SidebarNoteItem({ noteId, note }) {
+  const { title, content = '', updateTime } = note;
   return (
     <SidebarNoteItemContent
       id={noteId}
@@ -13,8 +13,10 @@ export default function SidebarNoteItem({noteId, note}){
         </p>
       }
     >
-      <SidebarNoteItemHeader title={title} updateTime={updateTime}></SidebarNoteItemHeader>
-
+      <SidebarNoteItemHeader
+        title={title}
+        updateTime={updateTime}
+      ></SidebarNoteItemHeader>
     </SidebarNoteItemContent>
   );
 }
